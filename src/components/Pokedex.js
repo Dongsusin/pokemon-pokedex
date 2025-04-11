@@ -6,8 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const Pokedex = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const pokemonPerPage = 76;
-  const totalPokemon = 151;
+  const pokemonPerPage = 25;
+  const totalPokemon = 1025;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,21 +44,25 @@ const Pokedex = () => {
       next={fetchMoreData}
       hasMore={currentPage * pokemonPerPage < totalPokemon}
       loader={<h4>Loading...</h4>}
-      endMessage={<p>All Pokémon have been loaded</p>}
-      className="container"
     >
-      {pokemonData.map((pokemon) => (
-        <div key={pokemon.id} className="pokemon">
-          <a href={`/pokemon/${pokemon.id}`}>
-            <img
-              src={pokemon.sprites.front_default}
-              alt={pokemon.korean_name}
-            />
-            <p>{pokemon.korean_name}</p>
-            <p>도감번호: {pokemon.id}</p>
-          </a>
-        </div>
-      ))}
+      <h1 className="title">POKEMON WIKI</h1>
+      <div className="container">
+        {pokemonData.map((pokemon) => (
+          <div key={pokemon.id} className="pokemon">
+            <a href={`/pokemon/${pokemon.id}`}>
+              <img
+                className="image"
+                src={pokemon.sprites.front_default}
+                alt={pokemon.korean_name}
+              />
+              <div className="about">
+                <p>{pokemon.korean_name}</p>
+                <p>도감번호: {pokemon.id}</p>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
     </InfiniteScroll>
   );
 };

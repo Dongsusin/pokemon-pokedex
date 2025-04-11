@@ -27,7 +27,16 @@ const PokemonDetails = ({ pokemon }) => {
       <h2>
         {pokemon.korean_name} (#{pokemon.id})
       </h2>
-      <img src={pokemon.sprites.front_default} alt={pokemon.korean_name} />
+      <div className="details-image">
+        <div className="defualt">
+          <img src={pokemon.sprites.front_default} alt={pokemon.korean_name} />
+          <img src={pokemon.sprites.back_default} alt={pokemon.korean_name} />
+        </div>
+        <div className="shiny">
+          <img src={pokemon.sprites.front_shiny} alt={pokemon.korean_name} />
+          <img src={pokemon.sprites.back_shiny} alt={pokemon.korean_name} />
+        </div>
+      </div>
       <p>이름: {pokemon.korean_name}</p>
       <p>키: {pokemon.height}</p>
       <p>무게: {pokemon.weight}</p>
