@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./pokedex.css";
-import { useLink } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Pokedex = () => {
