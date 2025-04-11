@@ -44,7 +44,7 @@ const Pokedex = () => {
       dataLength={pokemonData.length}
       next={fetchMoreData}
       hasMore={currentPage * pokemonPerPage < totalPokemon}
-      loader={<h4>Loading...</h4>}
+      loader={<h4 className="loaded">Loading...</h4>}
     >
       <h1 className="title">POKEMON WIKI</h1>
       <div className="container">
