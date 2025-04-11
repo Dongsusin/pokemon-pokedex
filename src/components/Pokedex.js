@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./pokedex.css";
+import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Pokedex = () => {
@@ -49,7 +50,7 @@ const Pokedex = () => {
       <div className="container">
         {pokemonData.map((pokemon) => (
           <div key={pokemon.id} className="pokemon">
-            <a href={`/pokemon/${pokemon.id}`}>
+            <Link to={`/pokemon/${pokemon.id}`}>
               <img
                 className="image"
                 src={pokemon.sprites.front_default}
@@ -59,7 +60,7 @@ const Pokedex = () => {
                 <p>{pokemon.korean_name}</p>
                 <p>도감번호: {pokemon.id}</p>
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
